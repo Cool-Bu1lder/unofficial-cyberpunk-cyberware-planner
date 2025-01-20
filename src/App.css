@@ -1,0 +1,305 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+/**/
+
+.cyberware-container {
+  min-width: 320px;
+}
+
+/**/
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #000000;
+  border: 1px solid #ad0000;
+  border-bottom-right-radius: 1.75vh;
+  color: cyan;
+  padding: 5px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.arrow-button {
+  background: none;
+  border: none;
+  color: cyan;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.arrow-button:hover {
+  background-color: #555;
+}
+
+/**/
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  justify-content: center;
+  padding: 10px;
+}
+
+.grid-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+  font-size: 10px;
+  max-width: 75px;
+}
+
+.grid-item.filled::before {
+  content: "";
+  position: relative;
+  width: 7%;
+  height: 100%;
+  background-color: orange;
+  margin-right: auto;
+}
+
+.grid-item-content {
+  background-color: #0000008f;
+  border: 1px solid #ad0000;
+  border-bottom-right-radius: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  aspect-ratio: 1;
+  position: relative;
+}
+
+.grid-item-content.iconic {
+  background: linear-gradient(to bottom right, black, rgb(143, 93, 0));
+}
+
+.grid-item-icon {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  pointer-events: none;
+  aspect-ratio: 1;
+}
+
+.grid-item.empty {
+}
+
+.grid-item-content:hover {
+  box-shadow: 0 0 15px 5px rgba(100, 245, 255, 0.7);
+}
+
+/**/
+
+.progress-container {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.progress-container.left {
+  left: 100px;
+}
+
+.progress-container.right {
+  right: 100px;
+}
+
+.progress-number {
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
+  text-align: center;
+}
+
+.progress-bar-container {
+  display: flex;
+  width: 50px;
+  height: 100%;
+  background-color: #f0f0f000;
+  position: relative;
+  flex-direction: column-reverse;
+  gap: 10px;
+}
+
+.progress-bar-segment {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  flex-direction: column-reverse;
+  gap: 4px;
+}
+
+.progress-container.right .progress-bar-segment {
+  align-items: flex-end;
+}
+
+.progress-bar-byte {
+  width: 100%;
+  height: 3px;
+  position: relative;
+  background-color: grey;
+
+  display: flex;
+  gap: 0px;
+  transition: width 0.5s ease-in-out;
+}
+
+.progress-container.left .progress-bar-byte {
+  background-color: rgba(128, 128, 128, 0);
+}
+
+.half-byte {
+  width: 20px;
+  height: 100%;
+  background-color: grey;
+  flex-shrink: 0;
+  transition: background-color 0.5s ease-in-out;
+}
+
+.progress-bar-byte.filled .half-byte {
+  background-color: yellow;
+}
+
+.half-byte.left {
+  margin-right: 10px;
+}
+
+.half-byte.right {
+  margin-left: auto;
+  flex-grow: 1;
+}
+
+.progress-container.left .progress-bar-byte.filled {
+  background-color: transparent;
+}
+
+.progress-container.right .progress-bar-byte.filled {
+  background-color: cyan;
+}
+
+.progress-bar-byte.max-bar {
+  width: 200%;
+}
+
+.progress-bar-byte.max-bar-2 {
+  width: 150%;
+}
+
+.progress-bar-byte.max-bar-3 {
+  width: 125%;
+}
+
+.progress-bar-text {
+  position: absolute;
+  font-size: 12px;
+  font-weight: bold;
+  color: #000;
+  white-space: nowrap;
+  width: 30px;
+  border-radius: 10%;
+}
+
+.progress-container.left .progress-bar-byte.max-bar .progress-bar-text {
+  right: -10px;
+  transform: translateX(100%);
+  background-color: yellow;
+}
+
+.progress-container.right .progress-bar-byte.max-bar .progress-bar-text {
+  background-color: cyan;
+  transform: translateX(-100%);
+  left: -10px;
+}
+
+/**/
+
+.hover-container {
+  background-color: transparent;
+  border: 1px solid #ad0000;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  pointer-events: none;
+  z-index: 1000;
+  user-select: none;
+  background-color: rgb(41, 41, 41);
+  text-align: left;
+  padding: 8px;
+  max-width: 300px;
+}
+
+.hover-capacity,
+.hover-armor {
+  display: flex;
+}
+
+.hover-container img {
+  transform: scale(0.8);
+}
+
+.hover-title {
+  margin: 0px;
+  color: aqua;
+  font-size: 20px;
+}
+
+.hover-tier {
+  margin: 0px;
+  color: orange;
+  font-size: 18px;
+}
+
+.hover-cyberware {
+  margin: 0px;
+  color: crimson;
+  font-size: 18px;
+}
+
+.hover-capacity {
+  margin: 0px;
+  color: yellow;
+  font-size: 24px;
+}
+
+.hover-armor {
+  margin: 0px;
+  color: cyan;
+  font-size: 24px;
+}
+
+.hover-effect {
+  margin: 0px;
+  font-size: 14px;
+}
+
+.line {
+  display: flex;
+  content: "";
+  width: 100%;
+  height: 1px;
+  background-color: brown;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+/**/
